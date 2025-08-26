@@ -304,14 +304,12 @@
     map.on('load', () => {
       scaleMarkers();
 
-      // Ejemplo de coordenadas simplificadas (debes poner las reales)
       const recorridoCosta = {
         type: 'Feature',
         geometry: {
           type: 'LineString',
           coordinates: [
-            [-1.979374, 36.900086], //fin línea
-            [-1.971552, 36.894981],
+            [-1.945177,36.931831], //fin línea
             [-1.931512, 36.927750],
             [-1.904562, 36.932862],
             [-1.889970, 36.948709],
@@ -342,7 +340,6 @@
         }
       });
 
-      // Flecha en medio (espaciado normal)
       map.addLayer({
         id: 'flechas-texto',
         type: 'symbol',
@@ -360,7 +357,6 @@
         }
       });
 
-      // Flecha final (espaciado enorme para que solo aparezca una)
       map.addLayer({
         id: 'flecha-final',
         type: 'symbol',
@@ -382,7 +378,6 @@
     map.on('load', () => {
       scaleMarkers();
 
-      // Ejemplo de coordenadas simplificadas (debes poner las reales)
       const recorridoCosta2 = {
         type: 'Feature',
         geometry: {
@@ -393,8 +388,8 @@
             [-1.879971, 36.975353],
             [-1.883576, 36.947748],
             [-1.910269, 36.926069],
-            [-1.972754, 36.891549],
-            [-1.979374, 36.900086] //inicio línea
+            [-1.916784,36.921204],
+            [-1.945177,36.931831] //inicio línea
           ]
         }
       };
@@ -442,6 +437,148 @@
         id: 'flecha-final2',
         type: 'symbol',
         source: 'recorrido-costa2',
+        layout: {
+          'symbol-placement': 'line',
+          'symbol-spacing': 999999, // fuerza que solo haya una
+          'text-field': '<',
+          'text-size': 24,
+          'text-rotation-alignment': 'map',
+          'text-keep-upright': false
+        },
+        paint: {
+          'text-color': '#ecf241'
+        }
+      });
+    });
+
+    map.on('load', () => {
+      scaleMarkers();
+
+      const recorridoCosta3 = {
+        type: 'Feature',
+        geometry: {
+          type: 'LineString',
+          coordinates: [
+            [-1.979374, 36.900086], //fin línea
+            [-1.971552, 36.894981],
+            [-1.931512, 36.927750]//inicio línea
+          ]
+        }
+      };
+
+      map.addSource('recorrido-costa3', {
+        type: 'geojson',
+        data: recorridoCosta3
+      });
+
+      map.addLayer({
+        id: 'recorrido-costa-linea3',
+        type: 'line',
+        source: 'recorrido-costa3',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#03fcec',
+          'line-width': 4,
+          'line-dasharray': [1, 2] // patrón: punto (0) y espacio (2)
+        }
+      });
+
+      map.addLayer({
+        id: 'flechas-texto3',
+        type: 'symbol',
+        source: 'recorrido-costa3', // misma fuente que tu línea
+        layout: {
+          'symbol-placement': 'line',   // coloca el símbolo siguiendo la línea
+          'symbol-spacing': 100,        // distancia entre símbolos en píxeles
+          'text-field': '<',            // el carácter que quieres mostrar
+          'text-size': 40,               // tamaño del símbolo
+          'text-rotation-alignment': 'map',
+          'text-keep-upright': false     // permite rotar según la dirección
+        },
+        paint: {
+          'text-color': '#ecf241'
+        }
+      });
+
+      map.addLayer({
+        id: 'flecha-final3',
+        type: 'symbol',
+        source: 'recorrido-costa3',
+        layout: {
+          'symbol-placement': 'line',
+          'symbol-spacing': 999999, // fuerza que solo haya una
+          'text-field': '<',
+          'text-size': 24,
+          'text-rotation-alignment': 'map',
+          'text-keep-upright': false
+        },
+        paint: {
+          'text-color': '#ecf241'
+        }
+      });
+    });
+
+     map.on('load', () => {
+      scaleMarkers();
+
+      const recorridoCosta4 = {
+        type: 'Feature',
+        geometry: {
+          type: 'LineString',
+          coordinates: [
+            [-1.916784,36.921204], //fin línea
+            [-1.972625,36.888124],
+            [-1.979374, 36.900086] //inicio línea
+          ]
+        }
+      };
+
+      map.addSource('recorrido-costa4', {
+        type: 'geojson',
+        data: recorridoCosta4
+      });
+
+      map.addLayer({
+        id: 'recorrido-costa-linea4',
+        type: 'line',
+        source: 'recorrido-costa4',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#fc8403',
+          'line-width': 4,
+          'line-dasharray': [1, 2] // patrón: punto (0) y espacio (2)
+        }
+      });
+
+      // Flecha en medio (espaciado normal)
+      map.addLayer({
+        id: 'flechas-texto4',
+        type: 'symbol',
+        source: 'recorrido-costa4', // misma fuente que tu línea
+        layout: {
+          'symbol-placement': 'line',   // coloca el símbolo siguiendo la línea
+          'symbol-spacing': 100,        // distancia entre símbolos en píxeles
+          'text-field': '<',            // el carácter que quieres mostrar
+          'text-size': 40,               // tamaño del símbolo
+          'text-rotation-alignment': 'map',
+          'text-keep-upright': false     // permite rotar según la dirección
+        },
+        paint: {
+          'text-color': '#ecf241'
+        }
+      });
+
+      // Flecha final (espaciado enorme para que solo aparezca una)
+      map.addLayer({
+        id: 'flecha-final4',
+        type: 'symbol',
+        source: 'recorrido-costa4',
         layout: {
           'symbol-placement': 'line',
           'symbol-spacing': 999999, // fuerza que solo haya una
