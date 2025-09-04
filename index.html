@@ -593,6 +593,167 @@
         }
       });
     });
+
+    map.on('load', () => {
+  map.addSource('puntos-playas-calas', {
+    type: 'geojson',
+    data: {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.901783,36.984840] 
+          },
+          properties: {
+            nombre: 'Playa de las Martinicas'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.899658,36.962469] 
+          },
+          properties: {
+            nombre: 'Playa del Corral'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.899594,36.958817]
+          },
+          properties: {
+            nombre: 'Playa de las Salinicas'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.903907,36.942852]
+          },
+          properties: {
+            nombre: 'Cala Castillo'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.909057,36.936867]
+          },
+          properties: {
+            nombre: 'Cala de Sorbas'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.917983,36.935786]
+          },
+          properties: {
+            nombre: 'Cala Arena'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.938497,36.936832]
+          },
+          properties: {
+            nombre: 'Cueva del Pirata'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.940900,36.936352]
+          },
+          properties: {
+            nombre: 'Cala del Sol'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.956264,36.918084]
+          },
+          properties: {
+            nombre: 'Cala Puente'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.958066,36.915476]
+          },
+          properties: {
+            nombre: 'Cala Chumba'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.963581,36.908082]
+          },
+          properties: {
+            nombre: 'Cala Montoya'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-1.993353,36.891892]
+          },
+          properties: {
+            nombre: 'Cala Hernandez'
+          }
+        },
+         {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-2.004211,36.880256]
+          },
+          properties: {
+            nombre: 'Las Negras'
+          }
+        },
+      ]
+    }
+  });
+
+  // Capa de texto
+  map.addLayer({
+    id: 'puntos-playas/calas',
+    type: 'symbol',
+    source: 'puntos-playas-calas',
+    layout: {
+      'text-field': ['get', 'nombre'],
+      'text-size': 14,
+      'text-anchor': 'top',
+      'text-offset': [0, 0.5]
+    },
+    paint: {
+      'text-color': '#ffffff',
+      'text-halo-color': '#000000',
+      'text-halo-width': 1
+    },
+    minzoom: 15.5, // Solo visibles a partir de este zoom
+    
+  });
+});
     // Datos
     const Puntos = [
       {
@@ -607,10 +768,10 @@
           cs: 'Odjezd: Přístav Carboneras'
         },
         description: {
-          es: `Inaugurado en 1991 por los Reyes de España, el puerto pesquero de Carboneras es uno de los más activos de la costa mediterránea. Aquí puedes vivir de cerca la estampa marinera: barcos palangreros, de arrastre y de cerco; redes tendidas al sol; y casetas de pescadores que conservan el encanto tradicional. La flota palangrera de Carboneras, especializada en atún rojo y pez espada, es de las más destacadas del Mediterráneo. En el puerto se encuentra la lonja, que acoge cada tarde la subasta de pescado recién capturado, después presente en los restaurantes del municipio. No te vayas sin probar la gamba roja de Carboneras, capturada en aguas profundas frente a su costa: un emblema de la gastronomía local por su sabor intenso y textura jugosa. También son típicos los <a href="https://www.fishipedia.es/pez/xyrichtys-novacula" target="_blank" rel="noopener noreferrer">galanes</a>, de carne blanca y delicada, y los <a href="https://www.fishipedia.es/pez/bothus-podas" target="_blank" rel="noopener noreferrer">tapaculos</a>, muy comunes en estas aguas.`,
-          en: `Opened in 1991 by the King and Queen of Spain, the fishing port of Carboneras is among the most active on the Mediterranean coast. Here you can soak up maritime life up close: longliners, trawlers and purse seiners; nets drying in the sun; and fishermen’s huts that still retain their traditional charm. Carboneras’ longline fleet, specializing in bluefin tuna and swordfish, is one of the most prominent in the Mediterranean. The fish market hosts a daily afternoon auction of freshly landed catch, later featured across town restaurants. Don’t leave without tasting Carboneras’ red prawn, caught in deep local waters—celebrated for its intense flavor and succulent texture. Also typical are the <a href="https://www.fishipedia.es/pez/xyrichtys-novacula" target="_blank" rel="noopener noreferrer">galanes (pearlsides wrasse)</a> and the <a href="https://www.fishipedia.es/pez/bothus-podas" target="_blank" rel="noopener noreferrer">tapaculos (wide-eyed flounder)</a>, both common here.`,
-          fr: `Inauguré en 1991 par les Rois d’Espagne, le port de pêche de Carboneras compte parmi les plus actifs de la côte méditerranéenne. On y découvre la vie maritime de près : palangriers, chalutiers et senneurs ; filets séchant au soleil ; cabanes de pêcheurs au charme intact. La flotte palangrière, spécialisée dans le thon rouge et l’espadon, est l’une des plus notables de Méditerranée. La criée organise chaque après-midi la vente aux enchères de poissons fraîchement débarqués, que l’on retrouve ensuite sur les tables des restaurants. Ne partez pas sans goûter à la crevette rouge de Carboneras, pêchée en eaux profondes : un emblème local pour sa saveur intense et sa texture juteuse. Sont aussi typiques les <a href="https://www.fishipedia.es/pez/xyrichtys-novacula" target="_blank" rel="noopener noreferrer">galanes</a> et les <a href="https://www.fishipedia.es/pez/bothus-podas" target="_blank" rel="noopener noreferrer">tapaculos</a>, très présents dans ces eaux.`,
-          cs:`Rybářský přístav Carboneras, který byl slavnostně otevřen v roce 1991 španělským králem a královnou, je jedním z nejrušnějších přístavů na pobřeží Středozemního moře. Zde můžete na vlastní oči vidět typické námořnické scenérie: lodě s dlouhými lovnými šňůrami, trawlery a lodě s obkličovacími sítěmi, sítě rozložené na slunci a rybářské chaty, které si zachovaly svůj tradiční šarm. Flotila lodí s dlouhými lovnými šňůrami v Carboneras, specializující se na lov tuňáka obecného a mečouna, patří k nejvýznamnějším ve Středomoří. V přístavu se nachází rybí tržnice, kde se každý odpoledne koná dražba čerstvě ulovených ryb, které se poté objeví v restauracích v obci. Neodjíždějte, aniž byste ochutnali červené krevety z Carboneras, ulovené v hlubokých vodách u pobřeží: díky své intenzivní chuti a šťavnaté konzistenci jsou symbolem místní gastronomie. Typické jsou také <a href="https://www.fishipedia.es/pez/xyrichtys-novacula" target="_blank" rel="noopener noreferrer">galanes</a> s jemným bílým masem a <a href="https://www.fishipedia.es/pez/bothus-podas" target="_blank" rel="noopener noreferrer">tapaculos</a>, velmi běžné v těchto vodách.`
+          es: `textos/salida-es.html`,
+          en: `textos/salida-en.html`,
+          fr: `textos/salida-fr.html`,
+          cs: `textos/salida-cs.html`
         },
         audioUrl: { es: 'audio/salida-es.mp3', en: 'audio/salida-en.mp3', fr: 'audio/salida-fr.mp3',cs:'audio/salida-cs.mp3' }
       },
@@ -626,10 +787,10 @@
           cs: 'Ostrov San Andrés'
         },
         description: {
-          es: `A solo 400 metros de la costa de Carboneras se alza la Isla de San Andrés, una formación volcánica de unos 15.000 m<sup>2</sup> declarada Monumento Natural por su gran valor ecológico. Es uno de los lugares más emblemáticos del municipio y un faro para los amantes del mar. Bajo sus aguas se esconde un paraíso submarino: fondos rocosos con grietas, cuevas y praderas marinas donde observar meros, serranos, castañuelas, doncellas, tordos verdes, sargos, mojarras, obladas, espetones e incluso corvinas y peces luna en primavera. Puedes contratar rutas en kayak para rodearla sin desembarcar o bucear en sus fondos rocosos para contemplar de cerca su vida marina.`,
-          en: `Just 400 meters off the Carboneras coastline rises San Andrés Island, a volcanic formation of around 15,000 m<sup>2</sup> declared a Natural Monument for its ecological significance. It’s an emblematic spot and a beacon for sea lovers. Beneath the surface lies an underwater paradise: rocky beds with fissures, caves and seagrass meadows hosting groupers, combers, damselfish, wrasses, green wrasse, black and white seabream, two-banded seabream, barracudas, and even croakers and ocean sunfish in spring. Book a kayak tour to circle the island without landing, or dive the rocky bottoms to get closer to its marine life.`,
-          fr: `À seulement 400 mètres du littoral de Carboneras se dresse l’île de San Andrés, formation volcanique d’environ 15 000 m<sup>2</sup> classée Monument naturel pour sa grande valeur écologique. Lieu emblématique et repère des amoureux de la mer, elle abrite un véritable paradis sous-marin : fonds rocheux, fissures, grottes et prairies marines où observer mérous, serrans, castagnoles, demoiselles, girelles, sars, bogues, oblades, barracudas et, au printemps, corvinas et poissons-lunes. Des sorties en kayak permettent d’en faire le tour, ou bien on peut plonger pour admirer de plus près sa vie marine.`,
-          cs:`Pouhých 400 metrů od pobřeží Carboneras se tyčí ostrov San Andrés, vulkanický útvar o rozloze přibližně 15 000 m<sup>2</sup>, který byl pro svou velkou ekologickou hodnotu prohlášen přírodní památkou. Je to jedno z nejznámějších míst v obci a maják pro milovníky moře. Pod jeho vodami se skrývá podmořský ráj: skalnaté dno s rozsedlinami, jeskyněmi a mořskými loukami, kde lze pozorovat kanice, serranos, kasteñuelas, doncellas, tordos verdes, sargos, mojarras, obladas, espetones a na jaře dokonce i corvinas a peces luna. Můžete si najmout kajak a obeplout ostrov, aniž byste vystoupili na břeh, nebo se potápět na skalnatém dně a pozorovat mořský život zblízka.`
+          es: `textos/isla-es.html`,
+          en: `textos/isla-en.html`,
+          fr: `textos/isla-fr.html`,
+          cs: `textos/isla-cs.html`
         },
         audioUrl: { es: 'audio/isla-es.mp3', en: 'audio/isla-en.mp3', fr: 'audio/isla-fr.mp3', cs:'audio/isla-cs.mp3' }
       },
@@ -645,10 +806,10 @@
           cs: 'Hrad San Andrés'
         },
         description: {
-          es: `Construido entre finales del siglo XVI y 1621 por orden de Luis López de Haro, marqués de Carpio, con permiso de Felipe II, este castillo vigilaba la costa frente a ataques piratas. Su sólida fábrica de mampostería luce tres torres cilíndricas y una gran torre en el ángulo sur, coronada por matacán defensivo y el escudo de los Carpio sobre la entrada. Marcó el origen del núcleo urbano de Carboneras: se repartieron tierras a los soldados para favorecer su asentamiento. En su interior hubo viviendas, almacenes, caballerizas y una capilla dedicada a San Andrés. Declarado Bien de Interés Cultural (BIC) en 1993, ha sido restaurado y hoy acoge actividades culturales y la oficina de turismo.`,
-          en: `Built between the late 16th century and 1621 by order of Luis López de Haro, Marquis of Carpio, with permission from Philip II, this castle guarded the coast from pirate raids. Its sturdy masonry features three cylindrical towers and a larger southern tower crowned with a defensive machicolation and the Carpio coat of arms above the main gate. It marked the birth of Carboneras’ urban core: land was granted to soldiers to encourage settlement. Inside stood homes, stores, stables and a chapel dedicated to Saint Andrew. Declared a Site of Cultural Interest (BIC) in 1993, it has been restored and now hosts cultural events and the tourist office.`,
-          fr: `Édifié entre la fin du XVIᵉ siècle et 1621 sur ordre de Luis López de Haro, marquis de Carpio, avec l’autorisation de Philippe II, ce château surveillait la côte contre les attaques de pirates. Sa solide maçonnerie présente trois tours cylindriques et une grande tour au sud, couronnée d’un mâchicoulis défensif, avec le blason des Carpio au-dessus de l’entrée. Il a marqué la naissance du noyau urbain de Carboneras : des terres furent attribuées aux soldats pour favoriser leur installation. Il abritait des logements, des magasins, des écuries et une chapelle dédiée à Saint André. Classé Bien d’intérêt culturel (BIC) en 1993, il a été restauré ; il accueille aujourd’hui des activités culturelles et l’office de tourisme.`,
-          cs: `Tento hrad byl postaven na konci 16. století a v roce 1621 na příkaz Luise Lópeze de Haro, markýze z Carpio, s povolením Filipa II. Sloužil k ostraze pobřeží před pirátskými útoky. Jeho pevná zděná konstrukce se pyšní třemi válcovitými věžemi a velkou věží v jižním rohu, korunovanou obranným padacím mostem a erbem rodu Carpio nad vchodem. Zámek znamenal počátek vzniku městského jádra Carboneras: pozemky byly rozděleny mezi vojáky, aby se podpořilo jejich usídlení. Uvnitř se nacházely obytné prostory, sklady, stáje a kaple zasvěcená svatému Ondřeji. V roce 1993 byl prohlášen za kulturní památku (BIC), byl zrestaurován a dnes slouží k pořádání kulturních akcí a jako turistické informační centrum.`
+          es: `textos/castillo-es.html`,
+          en: `textos/castillo-en.html`,
+          fr: `textos/castillo-fr.html`,
+          cs: `textos/castillo-cs.html`
         },
         audioUrl: { es: 'audio/castillo-es.mp3', en: 'audio/castillo-en.mp3', fr: 'audio/castillo-fr.mp3', cs:'audio/castillo-cs.mp3' }
       },
@@ -664,10 +825,10 @@
           cs: 'Maják Mesa Roldán'
         },
         description: {
-          es: `Situado a 220 m sobre el nivel del mar, en lo alto de una antigua formación volcánica, el Faro de Mesa Roldán regala una de las vistas más impresionantes del Parque Natural Cabo de Gata‑Níjar. A solo 7 km de Carboneras y 4 km de Agua Amarga, se inauguró en 1863 y lleva más de 160 años guiando a los navegantes. Su luz, visible hasta 23 millas náuticas, supuso un antes y un después en la seguridad marítima de la zona, donde antaño apenas se encendían hogueras en la torre vigía. Cómo llegar: desde el aparcamiento de la Playa de los Muertos, toma la carretera asfaltada que sube a la cima (bien señalizada, con algunas curvas). Curiosidad: en 1934 una nevada cubrió de hielo sus cristales—una estampa poco común aquí.`,
-          en: `Perched 220 m above sea level on an ancient volcanic rise, Mesa Roldán Lighthouse offers one of the most breathtaking views in Cabo de Gata‑Níjar Natural Park. Just 7 km from Carboneras and 4 km from Agua Amarga, it was inaugurated in 1863 and has guided sailors for over 160 years. Its light, visible up to 23 nautical miles, marked a turning point in local maritime safety, where previously only bonfires blazed from the old watchtower. Getting there: from Playa de los Muertos parking, take the paved road to the summit (well signposted, with a few sharp bends). Fun fact: in 1934, snowfall iced over its windowpanes—an exceedingly rare sight here.`,
-          fr: `Perché à 220 m d’altitude au sommet d’une ancienne formation volcanique, le phare de Mesa Roldán offre l’un des plus beaux panoramas du parc naturel de Cabo de Gata‑Níjar. À 7 km de Carboneras et 4 km d’Agua Amarga, il fut inauguré en 1863 et guide les marins depuis plus de 160 ans. Sa lumière, visible jusqu’à 23 milles nautiques, a transformé la sécurité maritime locale, là où l’on n’allumait auparavant que des feux de guet. Accès : depuis le parking de la plage de los Muertos, empruntez la route asphaltée jusqu’au sommet (bien indiquée, avec quelques virages). Anecdote : en 1934, une chute de neige glaça ses vitres—un spectacle rarissime ici.`,
-          cs: `Maják Mesa Roldán, který se nachází 220 m nad mořem, na vrcholu staré sopečné formace, nabízí jeden z nejpůsobivějších výhledů na přírodní park Cabo de Gata-Níjar. Nachází se pouhých 7 km od Carboneras a 4 km od Agua Amarga, byl slavnostně otevřen v roce 1863 a již více než 160 let slouží jako orientační bod pro námořníky. Jeho světlo, viditelné až na vzdálenost 23 námořních mil, znamenalo zlom v námořní bezpečnosti této oblasti, kde se dříve zapalovaly pouze ohně na strážní věži. Jak se tam dostat: z parkoviště u pláže Playa de los Muertos se vydejte po asfaltové silnici, která vede na vrchol (dobře značená, s několika zatáčkami). Zajímavost: v roce 1934 pokrylo sníh její skla ledem – což je zde velmi neobvyklý jev.`
+          es: `textos/faro-es.html`,
+          en: `textos/faro-en.html`,
+          fr: `textos/faro-fr.html`,
+          cs: `textos/faro-cs.html`
         },
         audioUrl: { es: 'audio/faro-es.mp3', en: 'audio/faro-en.mp3', fr: 'audio/faro-fr.mp3', cs: 'audio/faro-cs.mp3' }
       },
@@ -683,10 +844,10 @@
           cs: 'Věž Mesa Roldán'
         },
         description: {
-          es: `En un promontorio entre la Punta de los Muertos y la Punta de Media Naranja, junto al faro homónimo, esta torre vigía domina el horizonte a más de 220 m sobre el mar. Se construyó en 1766 sobre restos de defensas anteriores de origen musulmán y nazarí. Su peculiar silueta, conocida como “torre de pezuña”, la hace única. Ya en la Edad Media existió aquí una atalaya frente a incursiones vikingas y berberiscas. Con la Reconquista, la Corona reforzó estas defensas y Mesa Roldán llegó a ser uno de los puntos más estratégicos (y peligrosos) de la costa almeriense: los guardas percibían un plus por el riesgo. Geológicamente, es un domo volcánico submarino coronado por un arrecife fósil de coral de hace seis millones de años, responsable de su cima plana. Hoy la torre está muy deteriorada. Acceso: basta ascender unos metros a pie desde el faro. Curiosidad: Juego de Tronos rodó aquí escenas gracias a su paisaje dramático y su atmósfera única.`,
-          en: `On a headland between Punta de los Muertos and Punta de Media Naranja, beside the lighthouse, this watchtower commands the horizon over 220 m above the sea. Built in 1766 upon earlier Muslim and Nasrid structures, its unusual “hoof-shaped” plan makes it unique. A lookout already stood here in the Middle Ages against Viking and Berber raids. During the Reconquista the Crown strengthened these defenses, making Mesa Roldán one of the most strategic (and perilous) points along the Almerían coast; guards received hazard pay. Geologically, it’s an ancient submarine volcanic dome topped by a six‑million‑year‑old fossil coral reef, giving it a flat summit. The tower today is heavily deteriorated. Access: walk a few meters uphill from the lighthouse. Fun fact: Game of Thrones filmed scenes here for its dramatic landscape and atmosphere.`,
-          fr: `Sur un promontoire entre Punta de los Muertos et Punta de Media Naranja, à côté du phare, cette tour de guet domine l’horizon à plus de 220 m d’altitude. Construite en 1766 sur des vestiges d’origine musulmane et nasride, sa forme singulière en « sabot » la rend unique. Une vigie existait déjà ici au Moyen Âge pour se prémunir des raids vikings et berbères. Avec la Reconquête, la Couronne renforça ces défenses et Mesa Roldán devint l’un des points les plus stratégiques (et périlleux) de la côte d’Almería ; les gardes y percevaient une prime de risque. Géologiquement, il s’agit d’un dôme volcanique sous‑marin surmonté d’un récif corallien fossile vieux de six millions d’années, à l’origine de son sommet plat. La tour est aujourd’hui très détériorée. Accès : quelques mètres à pied depuis le phare. Anecdote : Game of Thrones y a tourné des scènes, séduite par ce décor spectaculaire.`,
-          cs: `Na výběžku mezi Punta de los Muertos a Punta de Media Naranja, vedle stejnojmenného majáku, se tato strážní věž tyčí nad mořem ve výšce více než 220 m. Byla postavena v roce 1766 na zbytcích dřívějších obranných staveb muslimského a nazarského původu. Její zvláštní silueta, známá jako „věž s kopytem“, ji činí jedinečnou. Již ve středověku zde stála strážní věž proti vpádům Vikingů a Berberů. S reconquistou koruna tyto obranné stavby posílila a Mesa Roldán se stala jedním z nejstrategičtějších (a nejnebezpečnějších) bodů almerijského pobřeží: strážci dostávali příplatek za riziko. Geologicky se jedná o podmořský vulkanický dóm, který je korunován fosilním korálovým útesem starým šest milionů let, který je zodpovědný za jeho plochý vrchol. Dnes je věž velmi zchátralá. Přístup: stačí vystoupat několik metrů pěšky od majáku. Zajímavost: Díky dramatické krajině a jedinečné atmosféře se zde natáčely scény ze seriálu Hra o trůny.`
+          es: `textos/torre-es.html`,
+          en: `textos/torre-en.html`,
+          fr: `textos/torre-fr.html`,
+          cs: `textos/torre-cs.html`
         },
         audioUrl: { es: 'audio/torre-es.mp3', en: 'audio/torre-en.mp3', fr: 'audio/torre-fr.mp3', cs: 'audio/torre-cs.mp3' }
       },
@@ -702,10 +863,10 @@
           cs: 'Playa de los Muertos'
         },
         description: {
-          es: `Considerada entre las playas más bellas de España, pertenece a Carboneras y se halla en el Parque Natural Cabo de Gata‑Níjar. Famosa por sus aguas turquesa y su entorno virgen, se encaja entre acantilados y formaciones volcánicas que dibujan un paisaje de impacto. Cómo llegar: desde Carboneras, toma la carretera hacia Agua Amarga y aparca en el parking habilitado junto al mirador y el punto de información. Desde allí, un sendero de unos 20 minutos a pie desciende hasta la playa. ¿Sabías por qué se llama «de los Muertos»? El nombre recuerda un temporal de 1869 que atrapó a varios pescadores bajo la Mesa Roldán; cinco fallecieron pese al rescate, y con el tiempo otros naufragios afianzaron la toponimia.`,
-          en: `Ranked among Spain’s most beautiful beaches, it belongs to Carboneras and lies within the Cabo de Gata‑Níjar Natural Park. Its crystal‑clear turquoise waters and pristine setting are framed by cliffs and volcanic formations. Getting there: from Carboneras, drive toward Agua Amarga and park near the viewpoint and tourist info point. From there, a 20‑minute footpath leads down to the beach. Why the name “of the Dead”? It recalls a 1869 storm that trapped fishermen beneath Mesa Roldán; five perished despite rescue efforts, and later shipwrecks cemented the somber toponym.`,
-          fr: `Considérée comme l’une des plus belles plages d’Espagne, elle relève de Carboneras et se situe dans le parc naturel de Cabo de Gata‑Níjar. Eaux turquoise cristallines, cadre vierge, falaises et formations volcaniques composent un décor spectaculaire. Accès : depuis Carboneras, prenez la route d’Agua Amarga et garez‑vous près du belvédère et du point d’information. De là, un sentier d’environ 20 minutes descend jusqu’à la plage. Pourquoi « des Morts » ? Le nom évoque une tempête de 1869 qui piégea des pêcheurs sous la Mesa Roldán ; cinq périrent malgré les secours, et d’autres naufrages ont fixé la toponymie.`,
-          cs: `Považována za jednu z nejkrásnějších pláží Španělska, patří k městu Carboneras a nachází se v přírodním parku Cabo de Gata-Níjar. Je známá svou tyrkysovou vodou a nedotčeným okolím, je zasazena mezi útesy a vulkanickými útvary, které vytvářejí působivou krajinu. Jak se tam dostat: z Carboneras jeďte po silnici směrem na Agua Amarga a zaparkujte na parkovišti u vyhlídky a informačního centra. Odtud vede k pláži asi 20minutová pěší stezka. Víte, proč se jmenuje „de los Muertos“ (pláž mrtvých)? Jméno připomíná bouři z roku 1869, která uvěznila několik rybářů pod Mesa Roldán; pět z nich zemřelo i přes záchrannou akci a další ztroskotání lodí postupem času upevnila tento název.`
+          es: `textos/playamuertos-es.html`,
+          en: `textos/playamuertos-en.html`,
+          fr: `textos/playamuertos-fr.html`,
+          cs: `textos/playamuertos-cs.html`
         },
         audioUrl: { es: 'audio/playamuertos-es.mp3', en: 'audio/playamuertos-en.mp3', fr: 'audio/playamuertos-fr.mp3', cs: 'audio/playamuertos-cs.mp3' }
       },
@@ -721,10 +882,10 @@
           cs: 'Cala de Enmedio'
         },
         description: {
-          es: `Pequeña y resguardada, destaca por sus aguas transparentes y su paisaje volcánico. Su acceso exigente ha preservado intacta su belleza, perfecta para quienes buscan calma y naturaleza en estado puro. Ideal para snorkel en aguas claras y ricas en vida. Las formaciones y acantilados que la rodean son un imán para fotografía y senderismo. Cómo llegar: desde Agua Amarga, sigue el sendero costero hacia Cala del Plomo y continúa ~1 km más (≈1 h 15 min). Desde Cala del Plomo, un paseo señalizado de unos 20 minutos entre rocas volcánicas conduce a esta joya escondida.`,
-          en: `Tucked away and sheltered, it stands out for glass‑clear waters and a volcanic setting. The demanding access has kept it pristine—a haven for quiet and unspoiled nature. Excellent for snorkeling in lively, transparent waters. Surrounding formations and cliffs are a treat for hikers and photographers. Getting there: from Agua Amarga, follow the coastal trail toward Cala del Plomo and continue ~1 km (≈1 h 15 min). From Cala del Plomo, a signed 20‑minute walk over volcanic rock leads to this hidden gem.`,
-          fr: `Petite et abritée, elle séduit par ses eaux limpides et son décor volcanique. L’accès exigeant a préservé sa beauté intacte—havre idéal pour qui cherche calme et nature. Parfaite pour le snorkeling en eaux claires et poissonneuses. Ses formations et falaises attirent randonneurs et photographes. Accès : depuis Agua Amarga, suivez le sentier côtier vers la Cala del Plomo et continuez ~1 km (≈1 h 15). Depuis la Cala del Plomo, un itinéraire balisé d’environ 20 minutes parmi les roches volcaniques mène à ce joyau caché.`,
-          cs: `Malá a chráněná, vyniká průzračnou vodou a sopečnou krajinou. Díky obtížnému přístupu si zachovala svou krásu, která je ideální pro ty, kteří hledají klid a přírodu v čisté podobě. Ideální pro šnorchlování v čisté vodě bohaté na mořský život. Útvary a útesy, které ji obklopují, jsou magnetem pro fotografování a turistiku. Jak se tam dostat: z Agua Amarga pokračujte po pobřežní stezce směrem na Cala del Plomo a pokračujte ještě asi 1 km (≈1 h 15 min). Z Cala del Plomo vede k tomuto skrytému klenotu asi 20minutová značená procházka mezi vulkanickými skalami.`
+          es: `textos/calaenmedio-es.html`,
+          en: `textos/calaenmedio-en.html`,
+          fr: `textos/calaenmedio-fr.html`,
+          cs: `textos/calaenmedio-cs.html`
         },
         audioUrl: { es: 'audio/calaenmedio-es.mp3', en: 'audio/calaenmedio-en.mp3', fr: 'audio/calaenmedio-fr.mp3', cs: 'audio/calaenmedio-cs.mp3' }
       },
@@ -740,10 +901,10 @@
           cs: 'Cala de San Pedro'
         },
         description: {
-          es: `Un rincón casi secreto del Parque Natural, famoso por su carácter salvaje. Aguas cristalinas, arena clara y fondo rocoso, junto a la antigua Torre de San Pedro (s. XVI), levantada para vigilar la costa ante piratas. Sin carreteras ni urbanización, conserva un encanto especial: ideal para desconectar, hacer snorkel y pasar un día de playa en paz. Cómo llegar: desde Las Negras, sendero costero de ~4 km (≈1 h), con algunas pendientes; lleva calzado adecuado y agua. ¿Sabías que…? Desde los años 80 vive aquí una pequeña comunidad autosuficiente, sin red de agua ni electricidad, abastecida por un manantial y un estilo de vida sencillo.`,
-          en: `A near‑secret nook of the Natural Park, famed for its wild feel. Crystal waters, pale sand and a rocky seabed lie beside the 16th‑century San Pedro Tower, raised to guard the coast from pirates. With no roads or urban sprawl, it keeps a singular charm—perfect to unplug, snorkel and while away a peaceful beach day. Getting there: from Las Negras, a coastal trail of ~4 km (≈1 h) with some climbs; bring good shoes and water. Did you know? Since the 1980s, a small self‑sufficient community lives here, off‑grid and supplied by a spring.`,
-          fr: `Un recoin presque secret du parc, réputé pour sa sauvagerie. Eaux cristallines, sable clair et fond rocheux, aux côtés de l’ancienne tour de San Pedro (XVIᵉ s.), érigée pour protéger la côte des pirates. Sans routes ni urbanisation, la crique conserve un charme unique : idéale pour déconnecter, faire du snorkeling et profiter d’une journée paisible. Accès : depuis Las Negras, sentier côtier d’environ 4 km (≈1 h) avec quelques pentes ; emportez de l’eau et de bonnes chaussures. Le saviez‑vous ? Depuis les années 1980, une petite communauté autosuffisante vit ici, hors réseau et alimentée par une source.`,
-          cs: `Un rincón casi secreto del Parque Natural, famoso por su carácter salvaje. Aguas cristalinas, arena clara y fondo rocoso, junto a la antigua Torre de San Pedro (s. XVI), levantada para vigilar la costa ante piratas. Sin carreteras ni urbanización, conserva un encanto especial: ideal para desconectar, hacer snorkel y pasar un día de playa en paz. Cómo llegar: desde Las Negras, sendero costero de ~4 km (≈1 h), con algunas pendientes; lleva calzado adecuado y agua. ¿Sabías que…? Desde los años 80 vive aquí una pequeña comunidad autosuficiente, sin red de agua ni electricidad, abastecida por un manantial y un estilo de vida sencillo.`
+          es: `textos/calasanpedro-es.html`,
+          en: `textos/calasanpedro-en.html`,
+          fr: `textos/calasanpedro-fr.html`,
+          cs: `textos/calasanpedro-cs.html`
         },
         audioUrl: { es: 'audio/calasanpedro-es.mp3', en: 'audio/calasanpedro-en.mp3', fr: 'audio/calasanpedro-fr.mp3', cs: 'audio/calasanpedro-cs.mp3' }
       },
@@ -759,10 +920,10 @@
           cs: 'Průmyslová zóna Carboneras'
         },
         description: {
-          es: `Tras la playa de Las Martinicas se abre la zona industrial de Carboneras, que concentra en poco espacio una notable diversidad de actividades. El contraste con los paisajes que aguardan en el Parque Natural Cabo de Gata‑Níjar no puede ser mayor. Entre las industrias destaca la antigua central térmica de Endesa, cerrada desde hace años y hoy en desmantelamiento. La planta desaladora de Carboneras, una de las mayores de Europa, dio un respiro a un territorio marcado por la sequía—con algunas de las menores precipitaciones de Europa occidental—y abastece consumo humano y regadío en el Campo de Níjar y los municipios del Levante Almeriense y Bajo Almanzora.`,
-          en: `Beyond Las Martinicas Beach lies Carboneras’ industrial zone, packing a wide array of activities into a compact area—a striking counterpoint to the natural park ahead. Notable here is Endesa’s former thermal power plant, shut down years ago and now being dismantled. The Carboneras desalination plant—among the largest in Europe—has eased the burden of drought in this arid region, where rainfall is among the lowest in Western Europe; its water supports both households and irrigation across Campo de Níjar and the Levante Almeriense/Bajo Almanzora municipalities.`,
-          fr: `Après la plage de Las Martinicas s’étend la zone industrielle de Carboneras, où se concentre une grande diversité d’activités—contraste saisissant avec le parc naturel tout proche. On y remarque l’ancienne centrale thermique d’Endesa, fermée depuis des années et en cours de démantèlement. L’usine de dessalement de Carboneras, l’une des plus vastes d’Europe, a soulagé un territoire marqué par la sécheresse—l’un des moins arrosés d’Europe occidentale—et approvisionne en eau potable et d’irrigation le Campo de Níjar ainsi que les communes du Levante Almeriense et du Bas Almanzora.`,
-          cs: `Za pláží Las Martinicas se rozkládá průmyslová zóna Carboneras, kde se na malém prostoru soustřeďuje značná rozmanitost činností. Kontrast s krajinou, která čeká v přírodním parku Cabo de Gata-Níjar, nemůže být větší. Mezi průmyslovými podniky vyniká stará tepelná elektrárna Endesa, která je již několik let uzavřena a dnes se demontuje. Odsolovací zařízení v Carboneras, jedno z největších v Evropě, přineslo úlevu území sužovanému suchem – s jedním z nejnižších úhrnů srážek v západní Evropě – a zásobuje pitnou vodou a vodou pro zavlažování Campo de Níjar a obce Levante Almeriense a Bajo Almanzora.`
+          es: `textos/industrial-es.html`,
+          en: `textos/industrial-en.html`,
+          fr: `textos/industrial-fr.html`,
+          cs: `textos/industrial-cs.html`
         },
         audioUrl: { es: 'audio/industrial-es.mp3', en: 'audio/industrial-en.mp3', fr: 'audio/industrial-fr.mp3', cs: 'audio/industrial-cs.mp3' }
       },
@@ -778,10 +939,10 @@
           cs: 'Sklad rudy v Agua Amarga'
         },
         description: {
-          es: `Los restos del cargadero de mineral evocan un capítulo reciente de la historia almeriense: su esplendor minero. Para localizar el antiguo muelle, basta buscar el peñón en el mar sobre el que se apoyaba. Medía 70 m de longitud y se situaba a 14 m sobre el nivel del mar. Era el extremo de la línea férrea entre Lucainena de las Torres y Agua Amarga; se eligió este punto por estar resguardado de los vientos de levante. Por aquí se embarcaba el hierro de Sierra Alhamilla. El ferrocarril comenzó a operar en 1896 y en 1942, tras años de actividad intermitente, zarpó el último vapor desde el muelle. Agotados los filones, se desmantelaron las instalaciones para llevar el hierro a Almería y fundirlo.`,
-          en: `The remains of the mineral loading dock recall a not‑too‑distant chapter in Almería’s past: its mining heyday. To find the old pier, look for the offshore rock that supported it. The structure was 70 m long and stood 14 m above sea level. It marked the terminus of the railway from Lucainena de las Torres to Agua Amarga, chosen here for shelter from easterly winds. Iron from Sierra Alhamilla shipped out from this point. The line began service in 1896, and in 1942—after intermittent activity—the last steamer sailed from the pier. Once the veins were exhausted, the facilities were dismantled and the metal taken to Almería for smelting.`,
-          fr: `Les vestiges du quai de chargement de minerai évoquent un chapitre récent de l’histoire d’Almería : son âge d’or minier. Pour situer l’ancien appontement, repérez l’îlot rocheux qui le soutenait. Il mesurait 70 m de long et s’élevait à 14 m au‑dessus du niveau de la mer. Terminus de la voie ferrée Lucainena de las Torres—Agua Amarga, l’endroit fut choisi car abrité des vents d’est. Le fer de la Sierra Alhamilla partait d’ici. La ligne entra en service en 1896 et, en 1942—après une activité intermittente—le dernier vapeur quitta le quai. Les filons épuisés, les installations furent démontées et le métal transporté à Almería pour y être fondu.`,
-          cs: `Zbytky nakládacího místa rudy připomínají nedávnou kapitolu historie Almeríe: její těžařskou slávu. Chcete-li najít staré molo, stačí hledat skálu v moři, na které stálo. Mělo délku 70 m a nacházelo se 14 m nad hladinou moře. Bylo to konečné stanoviště železniční trati mezi Lucainena de las Torres a Agua Amarga; toto místo bylo vybráno proto, že bylo chráněno před východními větry. Odtud se lodí přepravovalo železo ze Sierra Alhamilla. Železnice začala fungovat v roce 1896 a v roce 1942, po letech přerušované činnosti, odplula z mola poslední parník. Po vyčerpání ložisek byly zařízení demontována, aby se železo mohlo přepravit do Almeríe a roztavit.`
+          es: `textos/cargadero-es.html`,
+          en: `textos/cargadero-en.html`,
+          fr: `textos/cargadero-fr.html`,
+          cs: `textos/cargadero-cs.html`
         },
         audioUrl: { es: 'audio/cargadero-es.mp3', en: 'audio/cargadero-en.mp3', fr: 'audio/cargadero-fr.mp3', cs: 'audio/cargadero-cs.mp3' }
       },
@@ -797,10 +958,10 @@
           cs: 'Agua Amarga'
         },
         description: {
-          es: `Dejamos Carboneras y entramos en el término de Níjar, donde nos recibe la pedanía de Agua Amarga. La pesca, la minería y hoy el turismo han marcado su identidad. Alineado con la playa se extiende el antiguo barrio pesquero, de casas bajas y encaladas. Más allá aparecen dos calas emblemáticas del Parque Natural: Enmedio y del Plomo. En el paisaje destacan los blancos acantilados de calizas arrecifales.`,
-          en: `Leaving Carboneras, we enter the municipality of Níjar and the hamlet of Agua Amarga. Fishing, mining and now tourism have shaped its identity. Aligned with the beach lies the former fishing quarter, with low, whitewashed houses. Beyond it are two emblematic coves of the Natural Park: Enmedio and del Plomo. The white cliffs of reef limestone stand out in the scenery.`,
-          fr: `Nous quittons Carboneras pour entrer à Níjar, accueillis par le hameau d’Agua Amarga. La pêche, l’activité minière puis le tourisme ont forgé son identité. Le long de la plage s’étend l’ancien quartier des pêcheurs, aux maisons basses et blanchies à la chaux. Plus loin, deux criques emblématiques du parc naturel : Enmedio et del Plomo. Les falaises blanches de calcaires récifaux dominent le paysage.`,
-          cs: `Opouštíme Carboneras a vjíždíme do obce Níjar, kde nás vítá čtvrť Agua Amarga. Její identitu formovalo rybaření, těžba a dnes také cestovní ruch. Podél pláže se rozkládá stará rybářská čtvrť s nízkými bílými domky. Dále se nacházejí dvě charakteristické zátoky přírodního parku: Enmedio a del Plomo. V krajině vynikají bílé útesy z vápencových útesů.`
+          es: `textos/aguamarga-es.html`,
+          en: `textos/aguamarga-en.html`,
+          fr: `textos/aguamarga-fr.html`,
+          cs: `textos/aguamarga-cs.html`
         },
         audioUrl: { es: 'audio/aguamarga-es.mp3', en: 'audio/aguamarga-en.mp3', fr: 'audio/aguamarga-fr.mp3', cs: 'audio/aguamarga-cs.mp3' }
       },
@@ -816,10 +977,10 @@
           cs: 'Cala del Plomo'
         },
         description: {
-          es: `A la derecha encontramos la Cala del Plomo. Es de las más concurridas por su acceso relativamente sencillo por tierra. Sus aguas, muy someras, y su arena fina le dan un aspecto cristalino. En el paisaje llaman la atención los blancos acantilados que la enmarcan.`,
-          en: `On the right lies Cala del Plomo. It’s busier than most thanks to relatively easy land access. Very shallow waters and fine sand give it a crystalline look. The surrounding white cliffs complete the scene.`,
-          fr: `Sur la droite se trouve la Cala del Plomo. Plus fréquentée que d’autres en raison d’un accès terrestre aisé. Ses eaux peu profondes et son sable fin lui confèrent une transparence cristalline. Les falaises blanches environnantes complètent le décor.`,
-          cs: `Napravo se nachází zátoka Cala del Plomo. Je to jedna z nejnavštěvovanějších zátok, protože je relativně snadno přístupná po souši. Její vody jsou velmi mělké a jemný písek jí dodává křišťálový vzhled. V krajině upoutávají pozornost bílé útesy, které ji obklopují.`
+          es: `textos/calaplomo-es.html`,
+          en: `textos/calaplomo-en.html`,
+          fr: `textos/calaplomo-fr.html`,
+          cs: `textos/calaplomo-cs.html`
         },
         audioUrl: { es: 'audio/calaplomo-es.mp3', en: 'audio/calaplomo-en.mp3', fr: 'audio/calaplomo-fr.mp3', cs: 'audio/calaplomo-cs.mp3' }
       }
@@ -840,34 +1001,80 @@ async function mediaExists(url) {
   }
 }
 
+function escapeHTML(s) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+async function fetchTextNoCache(url) {
+  // Evita caché agresiva del navegador durante pruebas/edición
+  const u = new URL(url, window.location.href);
+  u.searchParams.set('_', Date.now().toString());
+  const res = await fetch(u.toString(), { cache: 'no-store' });
+  if (!res.ok) throw new Error(`HTTP ${res.status} al cargar ${url}`);
+  return res.text();
+}
+
 async function getPopupHTML(point, lang) {
   const title = point.nombre[lang] || point.nombre.es;
-  const desc = point.description[lang] || point.description.es;
+
+  const descPath =
+    (point.description && (point.description[lang] || point.description.es)) || null;
+
+  let descHTML = '';
+  if (descPath) {
+    try {
+      const raw = await fetchTextNoCache(descPath);
+      const isHTML = /\.html?(\?|#|$)/i.test(descPath);
+      descHTML = isHTML
+        ? raw
+        : escapeHTML(raw).replace(/\r?\n/g, '<br>');
+    } catch (err) {
+      console.error(err);
+      descHTML = 'Descripción no disponible.';
+    }
+  } else {
+    descHTML = 'Descripción no disponible.';
+  }
+
   const img = point.imageUrl
     ? `<img class="popup-media" src="${point.imageUrl}" alt="${title}" loading="lazy" />`
     : '';
 
+  // Evita HEAD por compatibilidad: algunos servidores no lo soportan bien
+  async function fileReachable(url) {
+    try {
+      const u = new URL(url, window.location.href);
+      u.searchParams.set('_', Date.now().toString());
+      const r = await fetch(u.toString(), { method: 'GET', cache: 'no-store' });
+      return r.ok;
+    } catch {
+      return false;
+    }
+  }
+
   let vid = '';
-  if (point.videoUrl && await mediaExists(point.videoUrl)) {
-    // sin .popup-media para que se aplique el separador azul claro
+  if (point.videoUrl && await fileReachable(point.videoUrl)) {
     vid = `<video src="${point.videoUrl}" controls playsinline></video>`;
   }
 
   let aud = '';
   const audioSrc = point.audioUrl && point.audioUrl[lang] ? point.audioUrl[lang] : '';
-  if (audioSrc && await mediaExists(audioSrc)) {
-    // igual que el vídeo, sin .popup-media
+  if (audioSrc && await fileReachable(audioSrc)) {
     aud = `<audio src="${audioSrc}" controls></audio>`;
   }
 
   return `
     <h3 class="popup-title">${title}</h3>
     ${img}
-    <div class="popup-description">${desc}</div>
+    <div class="popup-description">${descHTML}</div>
     ${vid}
     ${aud}
   `;
 }
+
 
 function createMarker(point) {
   const el = document.createElement('div');
@@ -877,7 +1084,6 @@ function createMarker(point) {
   el.setAttribute('role', 'button');
   el.setAttribute('aria-label', point.nombre[currentLang] || point.nombre.es);
 
-  // Texto debajo del icono
   const label = document.createElement('span');
   label.textContent = point.nombre[currentLang] || point.nombre.es;
   label.style.position = 'absolute';
@@ -890,17 +1096,29 @@ function createMarker(point) {
   label.style.textShadow = '0 0 3px #000';
   el.appendChild(label);
 
-  const popup = new mapboxgl.Popup({ offset: 28 }).setHTML('<div>Cargando...</div>');
+  const popup = new mapboxgl.Popup({ offset: 28 }).setHTML('<div class="popup-description">Cargando…</div>');
 
   const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
     .setLngLat(point.lnglat)
     .setPopup(popup)
     .addTo(map);
 
-  // Al abrir el popup, cargar HTML en el idioma actual
-  el.addEventListener('click', async () => {
-    const html = await getPopupHTML(point, currentLang);
-    popup.setHTML(html);
+  // Carga la descripción cuando el popup se abre
+  popup.on('open', async () => {
+    try {
+      const html = await getPopupHTML(point, currentLang);
+      popup.setHTML(html);
+    } catch (e) {
+      popup.setHTML('<div class="popup-description">No se pudo cargar el contenido.</div>');
+    }
+  });
+
+  // Accesibilidad: Enter/Space para abrir popup
+  el.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter' || ev.key === ' ') {
+      ev.preventDefault();
+      marker.togglePopup();
+    }
   });
 
   return { marker, popup, el, point };
@@ -911,16 +1129,18 @@ function initMarkers() {
 }
 
 function updateLanguage(lang) {
-  currentLang = lang; // guardar idioma global
+  currentLang = lang;
 
-  markers.forEach(m => {
-    // aria-label
+  markers.forEach(async (m) => {
     m.el.setAttribute('aria-label', m.point.nombre[lang] || m.point.nombre.es);
-
-    // texto debajo del icono
     const label = m.el.querySelector('span');
-    if (label) {
-      label.textContent = m.point.nombre[lang] || m.point.nombre.es;
+    if (label) label.textContent = m.point.nombre[lang] || m.point.nombre.es;
+
+    // Si el popup de este marcador está abierto, recárgalo en el nuevo idioma
+    if (m.popup.isOpen()) {
+      m.popup.setHTML('<div class="popup-description">Cargando…</div>');
+      const html = await getPopupHTML(m.point, lang);
+      m.popup.setHTML(html);
     }
   });
 }
